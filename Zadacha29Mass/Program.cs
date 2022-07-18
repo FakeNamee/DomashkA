@@ -4,14 +4,14 @@ int[] array = new int[size];
 int max = array[0];
 for (int i = 0; i < array.Length; i++)
 {
-    array[i] = random.Next(0, 8);
+    array[i] = random.Next(-10, 8);
 }
 for (int i = 0; i < array.Length; i++)
 {
 
     for (int j = 0; j < array.Length - 1; j++)
     {
-        if (array[j] > array[j + 1])
+        if (Math.Abs(array[j]) > Math.Abs(array[j + 1]))
         {
             max = array[j];
             array[j] = array[j + 1];
@@ -22,5 +22,5 @@ for (int i = 0; i < array.Length; i++)
 }
 foreach (int num in array)
 {
-Console. Write(num + " "); 
+    Console.Write(num + " ");
 }
