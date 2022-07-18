@@ -4,7 +4,7 @@ int[] array = new int[size];
 int max = array[0];
 for (int i = 0; i < array.Length; i++)
 {
-    array[i] = random.Next(-10, 8);
+    array[i] = random.Next(-3, 4);
 }
 for (int i = 0; i < array.Length; i++)
 {
