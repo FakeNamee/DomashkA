@@ -1,11 +1,14 @@
-﻿Console.WriteLine("Введите натуральное число 1");
-double numberA = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите натуральное число 2");
-double numberB = Convert.ToInt32(Console.ReadLine());
-double result = 0;
-for (double i = 0; i <= numberB; i++)
+﻿Console.Write("Введите натуральное число A: ");
+int a = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Введите натуральное число число B: ");
+int b = Convert.ToInt32(Console.ReadLine());
+
+int result = 1;
+
+for (int i = 1; i <= b; i++)
 {
-    result = Math.Pow(numberA, numberB);
+    result = result * a;
 }
 if (result <= 0)
 {
