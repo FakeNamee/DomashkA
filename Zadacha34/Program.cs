@@ -67,6 +67,52 @@ void Zadacha38()
     Console.WriteLine("Разница между минимальным и максимальны = " + result);
 
 }
-Zadacha38();
+
+void Zadacha41()
+{
+    int[] array = new int[5];
+    Console.WriteLine("Введите 5 чисел ");
+    int result = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = Convert.ToInt32(Console.ReadLine());
+        if (array[i] > 0)
+        {
+            result++;
+        }
+
+
+    }
+    Console.WriteLine("Количество чисел больше нуля = " + result);
+}
+
+void Zadacha43()
+
+{
+    Console.WriteLine("Введите B1");
+    double numberB1 = Convert.ToDouble(Console.ReadLine());
+    Console.WriteLine("Введите K1");
+    double numberK1 = Convert.ToDouble(Console.ReadLine());
+    Console.WriteLine("Введите B2");
+    double numberB2 = Convert.ToDouble(Console.ReadLine());
+    Console.WriteLine("Введите K2");
+    double numberK2 = Convert.ToDouble(Console.ReadLine());
+    double numberX0 = 0;
+    double numberY0 = 0;
+    if (numberK1 - numberK2 == 0)
+    {
+        Console.WriteLine("Прямые не пересекаются");
+    }
+    else
+    {
+        numberX0 = (numberB2 - numberB1) / (numberK1 - numberK2);
+        numberY0 = (numberK2 * numberX0) + numberB2;
+    }
+    Console.WriteLine("Пересекаются в координатах " + numberX0 + " " + numberY0 );
+}
+
+//Zadacha38();
 //Zadacha36();
 //Zadacha34();
+//Zadacha41();
+Zadacha43();
