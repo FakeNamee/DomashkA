@@ -1,118 +1,71 @@
-﻿//Задайте массив заполненный случайными положительными трёхзначными числами. 
-//Напишите программу, которая покажет количество чётных чисел в массиве
-using Metod;
-
-void Zadacha34()
+﻿using Metod;
+void Zadacha47()
 {
-    int evencount = 0;
-    int size = 9;
-    int[] array = new int[size];
-    HellpFullFunctions.FillArray(array, 100, 300);
-    HellpFullFunctions.PrintArray(array);
-    foreach (int num in array)
+    double[,] array = new double[3, 4];
+    void FillArrayDuo(double[,] array, int startNumber = 0, int finishNumber = 10)
     {
-        if (num % 2 == 0)
+        finishNumber++;
+        Random random = new Random();
+        int rows = array.GetLength(0);
+        int columns = array.GetLength(1);
+        for (int i = 0; i < rows; i++)
         {
-            evencount++;
+            for (int j = 0; j < columns; j++)
+            {
+                array[i, j] = Math.Round(random.Next(startNumber, finishNumber) + random.NextDouble(), 2);
+            }
         }
     }
-    Console.WriteLine("Количество чётных числе " + evencount);
+    FillArrayDuo(array);
+    HellpFullFunctions.PrintArrayDuo(array);
 }
-
-void Zadacha36()
+void Zadacha50()
 {
-    int size = 9;
-    int[] array = new int[size];
-    int Sum = 0;
-    HellpFullFunctions.FillArray(array, 10, 20);
-    HellpFullFunctions.PrintArray(array);
-
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (i % 2 != 0)
-        {
-            Sum = Sum + array[i];
-            i++;
-        }
-
-    }
-    Console.WriteLine("Сумма равна = " + Sum);
-}
-void Zadacha38()
-{
-    int size = 9;
-    double[] array = new double[size];
-    HellpFullFunctions.FillArray(array, 10, 20);
-    HellpFullFunctions.PrintArray(array);
+    Random random = new Random();
+    int rows = random.Next(4, 8);
+    int columns = random.Next(4, 8);
+    int[,] array = new int[rows, columns];
+    HellpFullFunctions.FillArrayDuo(array);
+    HellpFullFunctions.PrintArrayDuo(array);
     Console.WriteLine();
-    double max = array[0];
-    double min = array[0];
-    double result = 0;
-    for (int i = 1; i < array.Length; i++)
+
+    Console.WriteLine("Введите номер колонки");
+    int numColums = Convert.ToInt32(Console.ReadLine()) - 1;
+    Console.WriteLine("Введите номер строки");
+    int numRows = Convert.ToInt32(Console.ReadLine()) - 1;
+    if (numColums > array.Length && numRows > array.Length)
     {
-        if (array[i] > max)
-        {
-            max = array[i];
-        }
-        if (array[i] < min)
-
-        {
-            min = array[i];
-        }
-
-    }
-    Console.WriteLine("Минимальное число = " + min);
-    Console.WriteLine("Максимальное число = " + max);
-    result = max - min;
-    Console.WriteLine("Разница между минимальным и максимальны = " + result);
-
-}
-
-void Zadacha41()
-{
-    int[] array = new int[5];
-    Console.WriteLine("Введите 5 чисел ");
-    int result = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        array[i] = Convert.ToInt32(Console.ReadLine());
-        if (array[i] > 0)
-        {
-            result++;
-        }
-
-
-    }
-    Console.WriteLine("Количество чисел больше нуля = " + result);
-}
-
-void Zadacha43()
-
-{
-    Console.WriteLine("Введите B1");
-    double numberB1 = Convert.ToDouble(Console.ReadLine());
-    Console.WriteLine("Введите K1");
-    double numberK1 = Convert.ToDouble(Console.ReadLine());
-    Console.WriteLine("Введите B2");
-    double numberB2 = Convert.ToDouble(Console.ReadLine());
-    Console.WriteLine("Введите K2");
-    double numberK2 = Convert.ToDouble(Console.ReadLine());
-    double numberX0 = 0;
-    double numberY0 = 0;
-    if (numberK1 - numberK2 == 0)
-    {
-        Console.WriteLine("Прямые не пересекаются");
+        Console.WriteLine("Нет такой позиции");
     }
     else
     {
-        numberX0 = (numberB2 - numberB1) / (numberK1 - numberK2);
-        numberY0 = (numberK2 * numberX0) + numberB2;
+        Console.WriteLine("Значиние этого элемена " + array[numRows, numColums]);
     }
-    Console.WriteLine("Пересекаются в координатах " + numberX0 + " " + numberY0 );
 }
+void Zadacha52()
+{
+    int[,] array = new int[4, 4];
+    HellpFullFunctions.FillArrayDuo(array);
+    HellpFullFunctions.PrintArrayDuo(array);
+    Console.WriteLine();
+    double[] sqrColum = new double[4] { 0, 0, 0, 0 };
+    double result = 0;
+   
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            int a = array[i, j];
+            sqrColum[j] += a;
+        }
 
-//Zadacha38();
-//Zadacha36();
-//Zadacha34();
-//Zadacha41();
-Zadacha43();
+    }
+    for (int i = 0; i < sqrColum.Length; i++)
+    {
+        result = sqrColum[i] / sqrColum.Length;
+        Console.WriteLine($"Среднее арифметическое столбца {i+1}: {result}");
+    }
+}
+//Zadacha52();
+//Zadacha50();
+//Zadacha47();

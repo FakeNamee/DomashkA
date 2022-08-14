@@ -62,27 +62,67 @@ public static class HellpFullFunctions
         }
     }
 
-    public static void PrintArrayDuo(int[,] matr)
+    public static void PrintArrayDuo(int[,] array)
     {
-        for (int i = 0; i < matr.GetLength(0); i++)
+        int rows = array.GetLength(0);
+        int columns = array.GetLength(1);
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < matr.GetLength(1); j++)
+            for (int j = 0; j < columns; j++)
             {
-                Console.Write($"{matr[i, j]} ");
+                Console.Write(array[i, j] + "\t");
             }
             Console.WriteLine();
         }
+        
+        
+
+    }
+    public static void PrintArrayDuo(double[,] array)
+    {
+        int rows = array.GetLength(0);
+        int columns = array.GetLength(1);
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write(array[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+        
+        
+
     }
 
-    public static void FillArrayDuo(int[,] matr, int startNumber, int finishNumber)
+    public static void FillArrayDuo(int[,] array, int startNumber = 0, int finishNumber = 10)
     {
-        for (int i = 0; i < matr.GetLength(0); i++)
+        finishNumber++;
+        Random random = new Random();
+        int rows = array.GetLength(0);
+        int columns = array.GetLength(1);
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < matr.GetLength(1); j++)
+            for (int j = 0; j < columns; j++)
             {
-                matr[i, j] = new Random().Next(startNumber, finishNumber);
+                array[i, j] = random.Next(startNumber, finishNumber);
+            }
+        }
+    }
+    public static void FillArrayDuo(double[,] array, int startNumber = 0, int finishNumber = 10)
+    {
+        finishNumber++;
+        Random random = new Random();
+        int rows = array.GetLength(0);
+        int columns = array.GetLength(1);
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                array[i, j] = random.Next(startNumber, finishNumber) + random.NextDouble();
             }
         }
     }
 }
+
 
