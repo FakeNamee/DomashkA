@@ -50,7 +50,7 @@ void Zadacha52()
     Console.WriteLine();
     double[] sqrColum = new double[4] { 0, 0, 0, 0 };
     double result = 0;
-   
+
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
@@ -63,9 +63,83 @@ void Zadacha52()
     for (int i = 0; i < sqrColum.Length; i++)
     {
         result = sqrColum[i] / sqrColum.Length;
-        Console.WriteLine($"Среднее арифметическое столбца {i+1}: {result}");
+        Console.WriteLine($"Среднее арифметическое столбца {i + 1}: {result}");
     }
 }
+
+void Zadacha54()
+{
+    Random random = new Random();
+    int rows = random.Next(4, 8);
+    int columns = random.Next(4, 8);
+    int[,] array = new int[rows, columns];
+    HellpFullFunctions.FillArrayDuo(array);
+    HellpFullFunctions.PrintArrayDuo(array);
+
+    Console.WriteLine();
+
+    void SortToDimanshinalArray(int[,] array)
+    {
+        int buff = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
+
+
+
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                for (int u = 1; u < array.GetLength(1); u++)
+                {
+                    if (array[i, u] > array[i, u - 1])
+                    {
+                        buff = array[i, u];
+                        array[i, u] = array[i, u - 1];
+                        array[i, u - 1] = buff;
+                    }
+    ;
+                }
+            }
+        }
+    }
+    SortToDimanshinalArray(array);
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+void Zadacha56()
+{
+    int[,] array = new int[4, 6];
+    HellpFullFunctions.FillArrayDuo(array);
+    HellpFullFunctions.PrintArrayDuo(array);
+    Console.WriteLine();
+    int result = 0;
+    int[] SumRows = new int[4] { 0, 0, 0, 0 };
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            SumRows[i] += array[i, j];
+        }
+    }
+    Console.WriteLine("Строка с наименьшей суммой элементов - " + (HellpFullFunctions.MinArrayValue(SumRows) + 1));
+
+}
+void Zadacha58()
+{
+    int[,] array = new int[4, 4];
+    HellpFullFunctions.FillArrayDuo(array, -1, -1);
+    HellpFullFunctions.PrintArrayDuo(array);
+    HellpFullFunctions.SpyralArrayFill(array, 0, 0, 0, "right");
+    HellpFullFunctions.PrintArrayDuo(array);
+}
+Zadacha58();
+//Zadacha56();
+//Zadacha54();
 //Zadacha52();
 //Zadacha50();
 //Zadacha47();

@@ -74,8 +74,8 @@ public static class HellpFullFunctions
             }
             Console.WriteLine();
         }
-        
-        
+
+
 
     }
     public static void PrintArrayDuo(double[,] array)
@@ -90,8 +90,8 @@ public static class HellpFullFunctions
             }
             Console.WriteLine();
         }
-        
-        
+
+
 
     }
 
@@ -123,6 +123,93 @@ public static class HellpFullFunctions
             }
         }
     }
+    public static int MinArrayValue(int[] array)
+    {
+        int MinValue = array[0];
+        int MinIndex = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < MinValue)
+            {
+                MinValue = array[i];
+                MinIndex = i;
+            }
+        }
+        return MinIndex;
+    }
+
+    public static int[,] SpyralArrayFill(int[,] array, int FillNumber, int i, int j, string direction)
+    {
+        array[i, j] = FillNumber++;
+        if (FillNumber == (array.GetLength(0) * array.GetLength(1)))
+        {
+            return array;
+        }
+        else
+        {
+            if (direction == "right") // Если следующий элемент массива заполнен или выходит за пределы массива при движении вправо
+            {
+                if (j + 1 < array.GetLength(1) && array[i, j + 1] == -1)
+                {
+                    SpyralArrayFill(array, FillNumber, i, ++j, "right");
+                    return array;
+                }
+
+                else
+                {
+                    SpyralArrayFill(array, FillNumber, ++i, j, "down");
+                    return array;
+                }
+            }
+
+            if (direction == "down") // Если следующий элемент массива заполнен или выходит за пределы массива при движении вниз
+            {
+                if (i + 1 < array.GetLength(0) && array[i + 1, j] == -1)
+                {
+                    SpyralArrayFill(array, FillNumber, ++i, j, "down");
+                    return array;
+                }
+
+                else
+                {
+                    SpyralArrayFill(array, FillNumber, i, --j, "left");
+                    return array;
+                }
+            }
+
+            if (direction == "left") // Если следующий элемент массива заполнен или выходит за пределы массива при движении влево
+            {
+                if (j - 1 >= 0 && array[i, j - 1] == -1)
+                {
+                    SpyralArrayFill(array, FillNumber, i, --j, "left");
+                    return array;
+                }
+
+                else
+                {
+                    SpyralArrayFill(array, FillNumber, --i, j, "up");
+                    return array;
+                }
+            }
+
+            if (direction == "up") // Если следующий элемент массива заполнен или выходит за пределы массива при движении вниз
+            {
+                if (array[i - 1, j] == -1)
+                {
+                    SpyralArrayFill(array, FillNumber, --i, j, "up");
+                    return array;
+                }
+
+                else
+                {
+                    SpyralArrayFill(array, FillNumber, i, ++j, "right");
+                    return array;
+                }
+            }
+            return array;
+        }
+    }
 }
+
 
 
