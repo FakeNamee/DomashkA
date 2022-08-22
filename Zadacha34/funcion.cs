@@ -209,6 +209,59 @@ public static class HellpFullFunctions
             return array;
         }
     }
+    public static void PrintNormalNumbersInRange(int firstNumber, int secondNumber)
+    {
+        if (firstNumber != secondNumber)
+        {
+            if (firstNumber % 3 == 0)
+            {
+                Console.Write(firstNumber++ + " ");
+                PrintNormalNumbersInRange(firstNumber, secondNumber);
+            }
+            else
+            {
+                PrintNormalNumbersInRange(++firstNumber, secondNumber);
+            }
+        }
+        else
+        {
+            Console.Write(firstNumber);
+        }
+    }
+    public static int SumNormalNumbersInRange(int firstNumber, int secondNumber, int sum)
+    {
+        if (firstNumber != secondNumber)
+        {
+            sum += firstNumber++;
+            sum = SumNormalNumbersInRange(firstNumber, secondNumber, sum);
+            return sum;
+        }
+        else
+        {
+            sum += firstNumber;
+            return sum;
+        }
+    }
+    public static int AckermannFunc(int m, int n)
+    {
+        if (m == 0)
+        {
+            return n + 1;
+        }
+
+        if (m > 0 && n == 0)
+        {
+            return AckermannFunc(m - 1, 1);
+        }
+
+        else if (m > 0 && n > 0)
+        {
+            return AckermannFunc(m - 1, AckermannFunc(m, n - 1));
+        }
+
+
+        return 0;
+    }
 }
 
 

@@ -137,7 +137,100 @@ void Zadacha58()
     HellpFullFunctions.SpyralArrayFill(array, 0, 0, 0, "right");
     HellpFullFunctions.PrintArrayDuo(array);
 }
-Zadacha58();
+void Zadacha63()
+{
+    void Recursion(int number, int counter = 1)
+    {
+        if (counter > number) return;
+        Console.WriteLine(counter);
+        counter++;
+        Recursion(number, counter);
+    }
+    Recursion(5);
+}
+void Zadacha65()
+{
+    void Recursion(int m, int n)
+    {
+        if (m > n) return;
+        Console.Write(m + ", ");
+        m++;
+        Recursion(m, n);
+    }
+
+    Console.Write("Введите M: ");
+    int numM = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Введите N: ");
+    int numN = Convert.ToInt32(Console.ReadLine());
+    Recursion(numM, numN);
+    Console.WriteLine("\b\b.");
+
+}
+void Zadacha67()
+{
+    void Recurcion(int number, int sum = 0)
+    {
+        if (number == 0)
+        {
+            Console.WriteLine($"Сумма = {sum}");
+            return;
+        }
+        sum = sum + number % 10;
+        number = number / 10;
+        Recurcion(number, sum);
+
+
+    }
+
+    Console.WriteLine("Введите число: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+    Recurcion(number);
+
+}
+void Zadacha69a()
+{
+    int Zadacha69(int a, int b, int result = 1)
+    {
+        if (b == 0) return result;
+        result *= a;
+        b--;
+        return Zadacha69(a, b, result);
+    }
+    Console.WriteLine(Zadacha69(2, 10));
+}
+void Zadacha64()
+{
+    Console.WriteLine("Введите число: ");
+    int numberM = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите число: ");
+    int numberN = Convert.ToInt32(Console.ReadLine());
+    HellpFullFunctions.PrintNormalNumbersInRange(numberM, numberN);
+
+}
+void Zadacha66()
+{
+    Console.WriteLine("Введите число: ");
+    int numberM = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите число: ");
+    int numberN = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(HellpFullFunctions.SumNormalNumbersInRange(numberM, numberN, 0));
+}
+void Zadacha68()
+{
+    Console.WriteLine("Введите число: ");
+    int numberM = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите число: ");
+    int numberN = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(HellpFullFunctions.AckermannFunc(numberM, numberN));
+}
+Zadacha68();
+//Zadacha66();
+//Zadacha64();
+//Zadacha69a();
+//Zadacha67();
+//Zadacha65();
+//Zadacha63();
+//Zadacha58();
 //Zadacha56();
 //Zadacha54();
 //Zadacha52();
